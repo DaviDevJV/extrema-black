@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/images/hero-bg.jpg";
 import extremaSurfLogo from "@/assets/images/extrema-surf-logo.png";
 import CampaignTag from "@/components/landing/CampaignTag";
+import { trackGroupLead } from "@/lib/meta-tracking";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { useRef } from "react";
 
@@ -64,7 +65,10 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.div className="mt-10 flex flex-col items-center" initial="hidden" animate="visible" variants={reveal} custom={4}>
-            <Button variant="cta-lg" size="xl" onClick={() => window.open(whatsappGroupLink, "_blank")}>
+            <Button variant="cta-lg" size="xl" onClick={() => {
+              trackGroupLead("hero");
+              window.open(whatsappGroupLink, "_blank");
+            }}>
               ENTRAR NO GRUPO EXCLUSIVO
             </Button>
             <p className="mt-5 text-sm text-muted-foreground">🔥 Vagas limitadas • Acesso imediato</p>
