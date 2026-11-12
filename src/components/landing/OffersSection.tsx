@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import CampaignTag from "@/components/landing/CampaignTag";
 import { OFFERS, type Offer } from "@/components/landing/offers-data";
+import { trackGroupLead } from "@/lib/meta-tracking";
 
 const whatsappGroupLink = "https://chat.whatsapp.com/FoGmJXK7eZ37CjelmoGMcB";
 
@@ -130,6 +131,7 @@ const OffersSection = () => {
               href={whatsappGroupLink}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackGroupLead("offers")}
               className={cn(buttonVariants({ variant: "cta-lg", size: "lg" }))}
             >
               QUERO APROVEITAR NO GRUPO
