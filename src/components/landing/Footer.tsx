@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion, type Variants } from "framer-motion";
 import extremaSurfLogo from "@/assets/images/extrema-surf-logo.png";
+import { trackGroupLead } from "@/lib/meta-tracking";
 const Footer = () => {
   const whatsappGroupLink = "https://chat.whatsapp.com/FoGmJXK7eZ37CjelmoGMcB?mode=gi_t";
   const containerVariants: Variants = {
@@ -51,7 +52,10 @@ const Footer = () => {
             </motion.p>
 
             <motion.div variants={itemVariants}>
-              <Button variant="cta-lg" size="xl" className="group animate-blink-glow" onClick={() => window.open(whatsappGroupLink, "_blank")}>
+              <Button variant="cta-lg" size="xl" className="group animate-blink-glow" onClick={() => {
+                trackGroupLead("footer");
+                window.open(whatsappGroupLink, "_blank");
+              }}>
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer bg-[length:200%_100%]" />
                 <span className="relative z-10">ENTRAR NO GRUPO EXCLUSIVO</span>
               </Button>
