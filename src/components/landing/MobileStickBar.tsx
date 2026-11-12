@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { trackGroupLead } from "@/lib/meta-tracking";
 
 /**
  * Mobile-only fixed bottom bar (esquenta black).
@@ -14,7 +15,10 @@ const MobileStickBar = () => {
         variant="cta"
         size="default"
         className="h-12 w-full animate-blink-glow text-[13px]"
-        onClick={() => window.open(whatsappGroupLink, "_blank")}
+        onClick={() => {
+          trackGroupLead("mobile_sticky_bar");
+          window.open(whatsappGroupLink, "_blank");
+        }}
       >
         <span className="relative z-10">ENTRAR NO GRUPO — ESQUENTA BLACK</span>
       </Button>
